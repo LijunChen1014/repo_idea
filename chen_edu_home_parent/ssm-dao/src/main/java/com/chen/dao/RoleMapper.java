@@ -1,5 +1,7 @@
 package com.chen.dao;
 
+import com.chen.domain.Resource;
+import com.chen.domain.ResourceCategory;
 import com.chen.domain.Role;
 import com.chen.domain.Role_menu_relation;
 
@@ -28,4 +30,12 @@ public interface RoleMapper {
     删除角色
      */
     public void deleteRole(Integer roleId);
+   /*
+   查询当前角色所拥有的资源信息
+    */
+    public List<Resource> findResourceByRoleId(Integer id);
+    /*
+    查询当前角色所拥有的资源分类信息
+     */
+    public List<ResourceCategory> findResourceCategoryByRoleId(Integer id);
 }

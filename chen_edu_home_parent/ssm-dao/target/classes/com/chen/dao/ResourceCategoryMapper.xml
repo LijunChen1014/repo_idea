@@ -5,5 +5,35 @@
     <select id="findAllResourceCategory" resultType="com.chen.domain.ResourceCategory">
         select * from resource_category
     </select>
+
+    <insert id="saveResourceCategory" parameterType="com.chen.domain.ResourceCategory">
+        insert into resource_category(name,sort,created_time,updated_time,created_by,updated_by)
+        values (#{name},#{sort},#{createdTime},#{updatedTime},#{createdBy},#{updatedBy})
+    </insert>
+
+    <insert id="updateResourceCategory" parameterType="com.chen.domain.ResourceCategory">
+        update resource_category
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name !=null and name !=''">
+                name = #{name},
+            </if>
+            <if test="sort != null and sort !=''">
+                sort = #{sort},
+            </if>
+            <if test="updatedTime != null">
+                updated_time = #{updatedTime},
+            </if>
+            <if test="updatedBy != null">
+                updated_by = #{updatedBy},
+            </if>
+        </trim>
+        <where>
+            id=#{id}
+         </where>
+    </insert>
+
+    <delete id="deleteResourceCategory" parameterType="int">
+        delete  from resource_category where id=#{id}
+    </delete>
     
 </mapper>

@@ -62,4 +62,8 @@ public class RoleController {
         return new ResponseResult(true,200,"删除角色成功",null);
 
     }
+    @RequestMapping("/findResourceListByRoleId")
+    public ResponseResult findResourceListByRoleId(Integer roleId){
+        return roleService.findResourceListByRoleId(roleId);
+    }
 }

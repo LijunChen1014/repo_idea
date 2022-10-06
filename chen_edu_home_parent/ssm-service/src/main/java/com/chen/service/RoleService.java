@@ -1,5 +1,6 @@
 package com.chen.service;
 
+import com.chen.domain.ResponseResult;
 import com.chen.domain.Role;
 import com.chen.domain.RoleMenuVo;
 
@@ -23,4 +24,9 @@ public interface RoleService {
     删除角色
      */
     public void deleteRole(Integer RoleId);
+
+    /*
+    获取当前角色拥有的资源信息
+     */
+    public ResponseResult findResourceListByRoleId(Integer RoleId);
 }
