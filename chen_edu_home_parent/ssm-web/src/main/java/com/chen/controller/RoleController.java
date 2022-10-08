@@ -1,9 +1,6 @@
 package com.chen.controller;
 
-import com.chen.domain.Menu;
-import com.chen.domain.ResponseResult;
-import com.chen.domain.Role;
-import com.chen.domain.RoleMenuVo;
+import com.chen.domain.*;
 import com.chen.service.MenuService;
 import com.chen.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,5 +62,12 @@ public class RoleController {
     @RequestMapping("/findResourceListByRoleId")
     public ResponseResult findResourceListByRoleId(Integer roleId){
         return roleService.findResourceListByRoleId(roleId);
+    }
+
+    @RequestMapping("/roleContextResource")
+    public ResponseResult roleContextResource(@RequestBody RoleResourceVO roleResourceVO){
+        System.out.println(roleResourceVO);
+        roleService.updateRoleContextResource(roleResourceVO);
+        return new ResponseResult(true,200,"为角色分配资源成功",null);
     }
 }

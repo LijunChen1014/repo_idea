@@ -6,7 +6,6 @@ import com.chen.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -58,23 +57,47 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public ResponseResult findResourceListByRoleId(Integer RoleId) {
-        List<ResourceCategory> resourceCategoryByRoleId = roleMapper.findResourceCategoryByRoleId(RoleId);
-        List<Resource> resourceByRoleId = roleMapper.findResourceByRoleId(RoleId);
+        List<ResourceCategory> resourceCategoryList = roleMapper.findResourceCategoryByRoleId(RoleId);
+        List<Resource> resourceList = roleMapper.findResourceByRoleId(RoleId);
 
-        ArrayList<Resource> list = new ArrayList<>();
-        for (int i = 0; i < resourceCategoryByRoleId.size(); i++) {
-            for (Resource resource : resourceByRoleId) {
-                if (resourceCategoryByRoleId.get(i).getId().equals(resource.getCategoryId())){
-                    list.add(resource);
-                }
+//
+//        for (ResourceCategory resourceCategory : resourceCategoryList) {
+//            ArrayList<Resource> list = new ArrayList<>();
+//            for (Resource resource : resourceList) {
+//                if (resourceCategory.getId().equals(resource.getCategoryId())) {
+//                    list.add(resource);
+//                }
+//
+//            }
+//            resourceCategory.setResourceList(list);
+//
+//        }
 
-            }
-            resourceCategoryByRoleId.get(i).setResourceList(list);
-            list.clear();
+        for (ResourceCategory resourceCategory : resourceCategoryList) {
+
+            resourceCategory.setResourceList(resourceList);
+
         }
 
+        return new ResponseResult(true,200,"查询角色拥有的资源成功",resourceCategoryList);
+    }
 
+    @Override
+    public void updateRoleContextResource(RoleResourceVO roleResourceVO) {
 
-        return new ResponseResult(true,200,"查询角色拥有的资源成功",resourceCategoryByRoleId);
+        roleMapper.deleteRoleContextMenu(roleResourceVO.getRoleId());
+
+        for (Integer integer : roleResourceVO.getResourceIdList()) {
+            Role_resource_relation role_resource_relation = new Role_resource_relation();
+            role_resource_relation.setRoleId(roleResourceVO.getRoleId());
+            role_resource_relation.setResourceId(integer);
+            Date date = new Date();
+            role_resource_relation.setCreatedTime(date);
+            role_resource_relation.setUpdatedTime(date);
+            role_resource_relation.setUpdatedBy("system");
+            role_resource_relation.setCreatedBy("system");
+            roleMapper.updateRoleContextResource(role_resource_relation);
+        }
+
     }
 }

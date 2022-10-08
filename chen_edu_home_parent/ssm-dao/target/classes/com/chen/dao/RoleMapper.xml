@@ -33,6 +33,13 @@
         delete from roles where id = #{roleId}
     </delete>
 
+    <delete id="deleteRoleContextResource" parameterType="int">
+        delete from role_resource_relation where role_id =#{roleId}
+    </delete>
+    <insert id="updateRoleContextResource" parameterType="com.chen.domain.Role_resource_relation">
+        insert into role_resource_relation values (null,#{resourceId},#{roleId},#{createdTime},#{updatedTime},#{createdBy},#{updatedBy})
+    </insert>
+
 
     <select id="findResourceByRoleId" parameterType="int" resultType="com.chen.domain.Resource">
         SELECT DISTINCT r.*

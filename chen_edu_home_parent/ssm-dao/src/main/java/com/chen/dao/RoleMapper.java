@@ -1,9 +1,6 @@
 package com.chen.dao;
 
-import com.chen.domain.Resource;
-import com.chen.domain.ResourceCategory;
-import com.chen.domain.Role;
-import com.chen.domain.Role_menu_relation;
+import com.chen.domain.*;
 
 import java.util.List;
 
@@ -38,4 +35,13 @@ public interface RoleMapper {
     查询当前角色所拥有的资源分类信息
      */
     public List<ResourceCategory> findResourceCategoryByRoleId(Integer id);
+
+    /*
+    根据roleId删除角色与资源的关联关系
+     */
+    public void deleteRoleContextResource(Integer roleId);
+    /*
+    为角色分配资源
+     */
+    public void updateRoleContextResource(Role_resource_relation role_resource_relation);
 }

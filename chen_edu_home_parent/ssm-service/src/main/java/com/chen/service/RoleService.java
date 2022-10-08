@@ -3,6 +3,7 @@ package com.chen.service;
 import com.chen.domain.ResponseResult;
 import com.chen.domain.Role;
 import com.chen.domain.RoleMenuVo;
+import com.chen.domain.RoleResourceVO;
 
 import java.util.List;
 
@@ -29,4 +30,9 @@ public interface RoleService {
     获取当前角色拥有的资源信息
      */
     public ResponseResult findResourceListByRoleId(Integer RoleId);
+
+    /*
+    为角色分配资源
+     */
+    public void updateRoleContextResource(RoleResourceVO roleResourceVO);
 }
