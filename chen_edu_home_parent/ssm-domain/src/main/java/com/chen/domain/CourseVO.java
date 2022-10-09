@@ -62,7 +62,7 @@ public class CourseVO {
     private String courseListImg;
 
     //课程状态，0-草稿，1-上架
-    private int status;
+    private Integer status;
 
     //课程排序
     private int sortNum;
@@ -213,7 +213,7 @@ public class CourseVO {
         this.courseListImg = courseListImg;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
@@ -275,5 +275,16 @@ public class CourseVO {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "CourseVO{" +
+                "id=" + id +
+                ", courseName='" + courseName + '\'' +
+                ", brief='" + brief + '\'' +
+                ", price=" + price +
+                ", priceTag='" + priceTag + '\'' +
+                '}';
     }
 }

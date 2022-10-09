@@ -26,6 +26,7 @@ public class CourseController {
     private CourseService courseService;
     @RequestMapping("/findCourse")
     public ResponseResult findCourseByCondition(@RequestBody CourseVO courseVO){
+
         List<Course> courseList = courseService.findCourseByCondition(courseVO);
         ResponseResult result = new ResponseResult(true, 200, "响应成功", courseList);
         return result;
@@ -76,7 +77,8 @@ public class CourseController {
      */
     @RequestMapping("/saveOrUpdateCourse")
     public ResponseResult saveOrUpdateCourse(@RequestBody CourseVO courseVO) throws InvocationTargetException, IllegalAccessException {
-        if (courseVO.getId()==null){
+        System.out.println(courseVO);
+        if (courseVO.getId()==null || courseVO.getId()==0){
             //如果courseId为空 则说明是新增操作
             courseService.saveCourseOrTeacher(courseVO);
             return new ResponseResult(true, 200, "新增成功", null);
@@ -95,6 +97,7 @@ public class CourseController {
      */
     @RequestMapping("/findCourseById")
     public ResponseResult findCourseById(Integer id){
+        System.out.println(id);
         CourseVO courseVO = courseService.findCourseByID(id);
         return new ResponseResult(true, 200, "findCourseById success!", courseVO);
 
