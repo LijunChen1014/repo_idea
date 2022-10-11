@@ -17,8 +17,26 @@ public class UserVo {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endCreateTime;
 
+    private Date createTime;
+    private Date updateTime;
     private List<Integer> roleIdList;
     private Integer userId;
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
 
     public List<Integer> getRoleIdList() {
         return roleIdList;

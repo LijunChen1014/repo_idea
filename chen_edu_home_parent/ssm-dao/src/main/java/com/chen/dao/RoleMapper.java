@@ -44,4 +44,11 @@ public interface RoleMapper {
     为角色分配资源
      */
     public void updateRoleContextResource(Role_resource_relation role_resource_relation);
+
+    /*
+    新增角色信息
+     */
+    public  void saveRole(Role role);
+
+    public void updateRole(Role role);
 }

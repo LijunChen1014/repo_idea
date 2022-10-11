@@ -10,6 +10,8 @@ public interface PromotionAdMapper {
      */
      public List<PromotionAd> findAllPromotionAdByPage();
 
+     public PromotionAd findAllPromotionAdById(Integer id);
+
      /*
      广告动态上下线
       */

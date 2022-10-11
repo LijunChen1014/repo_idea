@@ -70,4 +70,15 @@ public class RoleController {
         roleService.updateRoleContextResource(roleResourceVO);
         return new ResponseResult(true,200,"为角色分配资源成功",null);
     }
+
+    @RequestMapping("/saveOrUpdateRole")
+    public ResponseResult saveOrUpdateRole(@RequestBody Role role){
+        if (role.getId()==null){
+            roleService.saveRole(role);
+            return new ResponseResult(true,200,"新增角色成功",null);
+        }else {
+            roleService.updateRole(role);
+            return new ResponseResult(true,200,"修改角色成功",null);
+        }
+    }
 }

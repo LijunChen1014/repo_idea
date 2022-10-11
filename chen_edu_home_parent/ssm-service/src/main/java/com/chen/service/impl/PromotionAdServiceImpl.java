@@ -51,4 +51,10 @@ public class PromotionAdServiceImpl implements PromotionAdService {
         promotionAd.setUpdateTime(new Date());
         promotionAdMapper.updatePromotionAd(promotionAd);
     }
+
+    @Override
+    public PromotionAd findAllPromotionAdById(Integer id) {
+        return promotionAdMapper.findAllPromotionAdById(id);
+
+    }
 }

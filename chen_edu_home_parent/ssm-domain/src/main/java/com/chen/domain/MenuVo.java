@@ -2,9 +2,9 @@ package com.chen.domain;
 
 public class MenuVo {
 
-    private Integer currentPage = 1;
+    private Integer currentPage;
 
-    private Integer pageSize = 10;
+    private Integer pageSize;
 
     private Integer id;
 

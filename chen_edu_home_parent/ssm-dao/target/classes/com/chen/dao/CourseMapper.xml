@@ -8,7 +8,7 @@
             <if test="courseName!=null and courseName !=''">
                 and course_name like concat('%',#{courseName},'%')
             </if>
-            <if test="status!=null and status !=''">
+            <if test="status!=null">
                 and status = #{status}
             </if>
             <if test="true">
@@ -18,28 +18,28 @@
     </select>
 <!--    新增课程-->
     <insert id="saveCourse" parameterType="com.chen.domain.Course" >
-        insert into course(
-        course_name,
-        brief,
-        preview_first_field,
-        preview_second_field,
-        course_img_url,
-        course_list_img,
-        sort_num,
-        price,
-        discounts,
-        sales,
-        discounts_tag,
-        course_description_mark_down,
-        create_time,
-        update_time
-    ) VALUES(#{courseName},#{brief},#{previewFirstField},#{previewSecondField},
-    #{courseImgUrl},#{courseListImg},#{sortNum},#{price},#{discounts},#{sales},
-    #{discountsTag},#{courseDescriptionMarkDown},#{createTime},#{updateTime});
-<!--    获取添加成功记录返回的ID值 赋值给COURSE中的ID属性 -->
-    <selectKey resultType="int" order="AFTER" keyProperty="id">
-        select LAST_INSERT_ID()
-    </selectKey>
+                insert into course(
+                course_name,
+                brief,
+                preview_first_field,
+                preview_second_field,
+                course_img_url,
+                course_list_img,
+                sort_num,
+                price,
+                discounts,
+                sales,
+                discounts_tag,
+                course_description_mark_down,
+                create_time,
+                update_time
+            ) VALUES(#{courseName},#{brief},#{previewFirstField},#{previewSecondField},
+            #{courseImgUrl},#{courseListImg},#{sortNum},#{price},#{discounts},#{sales},
+            #{discountsTag},#{courseDescriptionMarkDown},#{createTime},#{updateTime});
+        <!--    获取添加成功记录返回的ID值 赋值给COURSE中的ID属性 -->
+            <selectKey resultType="int" order="AFTER" keyProperty="id">
+                select LAST_INSERT_ID()
+            </selectKey>
     </insert>
 
 

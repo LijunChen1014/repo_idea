@@ -9,6 +9,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -26,5 +27,27 @@ public class ResourceServiceImpl implements ResourceService {
 
 
         return pageInfo;
+    }
+
+    @Override
+    public void saveResource(Resource resource) {
+        Date date = new Date();
+        resource.setCreatedTime(date);
+        resource.setUpdatedTime(date);
+        resource.setCreatedBy("system");
+        resource.setUpdatedBy("system");
+        resourceMapper.saveResource(resource);
+    }
+
+    @Override
+    public void updateResource(Resource resource) {
+        Date date = new Date();
+        resource.setUpdatedTime(date);
+        resourceMapper.updateResource(resource);
+    }
+
+    @Override
+    public void deleteResource(Integer id) {
+        resourceMapper.deleteResource(id);
     }
 }

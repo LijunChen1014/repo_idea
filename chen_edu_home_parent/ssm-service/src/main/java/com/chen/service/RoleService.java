@@ -35,4 +35,8 @@ public interface RoleService {
     为角色分配资源
      */
     public void updateRoleContextResource(RoleResourceVO roleResourceVO);
+
+    public  void saveRole(Role role);
+
+    public void updateRole(Role role);
 }

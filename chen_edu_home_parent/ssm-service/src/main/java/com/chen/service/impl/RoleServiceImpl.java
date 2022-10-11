@@ -85,7 +85,7 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public void updateRoleContextResource(RoleResourceVO roleResourceVO) {
 
-        roleMapper.deleteRoleContextMenu(roleResourceVO.getRoleId());
+        roleMapper.deleteRoleContextResource(roleResourceVO.getRoleId());
 
         for (Integer integer : roleResourceVO.getResourceIdList()) {
             Role_resource_relation role_resource_relation = new Role_resource_relation();
@@ -99,5 +99,25 @@ public class RoleServiceImpl implements RoleService {
             roleMapper.updateRoleContextResource(role_resource_relation);
         }
 
+    }
+
+    @Override
+    public void saveRole(Role role) {
+        Date date = new Date();
+        role.setCreatedTime(date);
+        role.setUpdatedTime(date);
+        role.setCreatedBy("system");
+        role.setUpdatedBy("system");
+        roleMapper.saveRole(role);
+    }
+
+    @Override
+    public void updateRole(Role role) {
+        Date date = new Date();
+
+        role.setUpdatedTime(date);
+
+        role.setUpdatedBy("system");
+        roleMapper.updateRole(role);
     }
 }

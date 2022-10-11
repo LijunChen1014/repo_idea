@@ -36,6 +36,13 @@ public class PromotionAdController {
         return new ResponseResult(true,200,"广告分页查询成功",pageInfo);
     }
 
+    @RequestMapping("/findAllPromotionAdById")
+    public ResponseResult findAllPromotionAdById(Integer id){
+        PromotionAd promotionAd = promotionAdService.findAllPromotionAdById(id);
+        return new ResponseResult(true,200,"广告分页查询成功",promotionAd);
+
+    }
+
     @RequestMapping("/PromotionAdUpload")
     public ResponseResult fileUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request) throws IOException {
         if (file.isEmpty()){

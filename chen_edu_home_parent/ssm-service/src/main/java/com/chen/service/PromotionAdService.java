@@ -22,4 +22,6 @@ public interface PromotionAdService {
     更新广告
      */
     public void updatePromotionAd(PromotionAd promotionAd);
+
+    public PromotionAd findAllPromotionAdById(Integer id);
 }
