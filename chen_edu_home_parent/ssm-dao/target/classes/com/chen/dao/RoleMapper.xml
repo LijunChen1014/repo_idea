@@ -55,4 +55,12 @@
                      INNER JOIN roles ro ON ro.id= rr.role_id
                      WHERE ro.id = #{id}
     </select>
+
+    <insert id="saveRole" parameterType="com.chen.domain.Role">
+        insert into roles values (null ,#{code},#{name},#{description},#{createdTime},#{updatedTime},#{createdBy},#{updatedBy});
+    </insert>
+
+    <update id="updateRole" parameterType="com.chen.domain.Role">
+        update roles set code = #{code},name = #{name},description=#{description},updated_time=#{updatedTime},updated_by=#{updatedBy} where id =#{id}
+    </update>
 </mapper>

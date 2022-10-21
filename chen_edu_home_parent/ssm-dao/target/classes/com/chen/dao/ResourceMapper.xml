@@ -19,4 +19,16 @@
 
         </where>
     </select>
+
+    <insert id="saveResource" parameterType="com.chen.domain.Resource">
+        insert into resource  values (null ,#{name},#{url},#{categoryId},#{description},#{createdTime},#{updatedTime},#{createdBy},#{updatedBy})
+    </insert>
+
+    <update id="updateResource" parameterType="com.chen.domain.Resource">
+        update resource set name = #{name},url=#{url},category_id=#{categoryId},description=#{description},updated_time=#{updatedTime},updated_by=#{updatedBy} where id=#{id}
+    </update>
+
+    <delete id="deleteResource" parameterType="int">
+        delete from resource where id =#{id}
+    </delete>
 </mapper>

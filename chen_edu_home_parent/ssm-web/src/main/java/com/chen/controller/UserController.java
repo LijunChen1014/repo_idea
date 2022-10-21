@@ -59,7 +59,7 @@ public class UserController {
             map.put("access_token",access_token);
             map.put("user_id",user1.getId());
 
-            return new  ResponseResult(true,200,"登录成功",map);
+            return new  ResponseResult(true,1,"登录成功",map);
         }else {
 
             return new  ResponseResult(true,400,"用户名或密码错误",null);
