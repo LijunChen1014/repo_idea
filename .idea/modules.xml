@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/chen_edu_home_parent/chen_edu_home_parent.iml" filepath="$PROJECT_DIR$/chen_edu_home_parent/chen_edu_home_parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chen_edu_home_parent/ssm-dao/ssm-dao.iml" filepath="$PROJECT_DIR$/chen_edu_home_parent/ssm-dao/ssm-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chen_edu_home_parent/ssm-domain/ssm-domain.iml" filepath="$PROJECT_DIR$/chen_edu_home_parent/ssm-domain/ssm-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chen_edu_home_parent/ssm-service/ssm-service.iml" filepath="$PROJECT_DIR$/chen_edu_home_parent/ssm-service/ssm-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chen_edu_home_parent/ssm-web/ssm-web.iml" filepath="$PROJECT_DIR$/chen_edu_home_parent/ssm-web/ssm-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ssm_code.iml" filepath="$PROJECT_DIR$/.idea/ssm_code.iml" />
+    </modules>
+  </component>
+</project>
