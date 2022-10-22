@@ -9,8 +9,8 @@
         <module name="ssm-service" />
         <module name="ssm-web" />
         <module name="ssm-utils" />
-        <module name="ssm-dao" />
         <module name="ssm-domain" />
+        <module name="ssm-dao" />
       </profile>
     </annotationProcessing>
   </component>
